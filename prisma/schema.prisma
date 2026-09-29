@@ -1,0 +1,162 @@
+// Modelo de datos — Encuesta de percepción de asesores sobre su liderazgo.
+// Principio: ninguna tabla de respuestas contiene datos personales.
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Seniority {
+  LESS_THAN_1_YEAR
+  ONE_TO_THREE_YEARS
+  MORE_THAN_3_YEARS
+}
+
+enum QuestionType {
+  LIKERT
+  SATISFACTION
+  NPS
+  FREQUENCY
+  RANKING
+  OPEN
+}
+
+enum PriorityDimension {
+  COMMUNICATION
+  DECISIONS
+  COMMERCIAL_TRAINING
+  TECHNICAL_TRAINING
+  METHODOLOGY
+}
+
+model Survey {
+  id          String   @id @default(cuid())
+  name        String
+  description String?
+  active      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  responses SurveyResponse[]
+}
+
+model Leader {
+  id        String   @id @default(cuid())
+  name      String   @unique
+  active    Boolean  @default(true)
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  responses SurveyResponse[]
+}
+
+/// Catálogo replicado desde src/lib/survey/questions.ts por el seed.
+model SurveyBlock {
+  id        String  @id // p. ej. "LEADERSHIP"
+  name      String  @unique
+  sortOrder Int
+  /// Participa en resultados por bloque / promedio general (escala 1–5).
+  scored    Boolean @default(true)
+
+  questions Question[]
+}
+
+model Question {
+  id           String       @id // código: L1, CO4, G2, PR1, O1…
+  blockId      String
+  text         String
+  shortLabel   String
+  type         QuestionType
+  allowComment Boolean      @default(false)
+  required     Boolean      @default(true)
+  /// Entra en la hoja "Resultados" (Likert + G1).
+  inResults    Boolean      @default(false)
+  sortOrder    Int
+
+  block   SurveyBlock    @relation(fields: [blockId], references: [id])
+  answers SurveyAnswer[]
+
+  @@index([blockId])
+}
+
+/// Opciones de G3 / G4 con su nivel numérico (editable).
+model FrequencyOption {
+  id        String @id // NEVER, LESS_THAN_MONTHLY, MONTHLY, BIWEEKLY, WEEKLY
+  label     String @unique
+  level     Int
+  sortOrder Int
+}
+
+/// Parámetros de negocio. Fila única (id = 1).
+model AppSettings {
+  id                     Int      @id @default(1)
+  strengthThreshold      Float    @default(4.0)
+  improveThreshold       Float    @default(3.0)
+  alertThreshold         Float    @default(3.5)
+  favorableMin           Int      @default(4)
+  frequencyGapThreshold  Float    @default(0.5)
+  minResponsesForSegment Int      @default(3)
+  updatedAt              DateTime @updatedAt
+}
+
+model SurveyResponse {
+  /// UUID interno; nunca se muestra al participante.
+  id          String    @id @db.Uuid
+  surveyId    String
+  leaderId    String
+  seniority   Seniority
+  startedAt   DateTime
+  completedAt DateTime  @default(now())
+
+  survey     Survey         @relation(fields: [surveyId], references: [id])
+  leader     Leader         @relation(fields: [leaderId], references: [id])
+  answers    SurveyAnswer[]
+  priorities PriorityRank[]
+
+  @@index([leaderId])
+  @@index([surveyId])
+  @@index([completedAt])
+}
+
+model SurveyAnswer {
+  id              String  @id @default(cuid())
+  responseId      String  @db.Uuid
+  questionId      String
+  numericValue    Int?
+  isNotApplicable Boolean @default(false)
+  optionValue     String?
+  textValue       String?
+  comment         String?
+
+  response SurveyResponse @relation(fields: [responseId], references: [id], onDelete: Cascade)
+  question Question       @relation(fields: [questionId], references: [id])
+
+  @@unique([responseId, questionId])
+  @@index([questionId])
+}
+
+/// PR1 persistido por dimensión (1 = más importante). Sin posiciones repetidas.
+model PriorityRank {
+  id         String            @id @default(cuid())
+  responseId String            @db.Uuid
+  dimension  PriorityDimension
+  rank       Int
+
+  response SurveyResponse @relation(fields: [responseId], references: [id], onDelete: Cascade)
+
+  @@unique([responseId, dimension])
+  @@unique([responseId, rank])
+}
+
+model AdminUser {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  name         String?
+  passwordHash String
+  createdAt    DateTime @default(now())
+}

@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: reypar-liderazgo-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: reypar
+      POSTGRES_PASSWORD: reypar
+      POSTGRES_DB: reypar_liderazgo
+    ports:
+      - "5433:5432"
+    volumes:
+      - reypar-db:/var/lib/postgresql/data
+
+volumes:
+  reypar-db:
