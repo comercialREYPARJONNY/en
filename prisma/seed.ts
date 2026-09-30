@@ -30,8 +30,8 @@ async function main() {
   if ((await prisma.leader.count()) === 0) {
     await prisma.leader.createMany({
       data: [
-        { name: "Líder A", sortOrder: 1 },
-        { name: "Líder B", sortOrder: 2 },
+        { name: "Paul Salazar", sortOrder: 1 },
+        { name: "Diana Correa", sortOrder: 2 },
       ],
     })
   }

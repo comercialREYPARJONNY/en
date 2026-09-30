@@ -118,7 +118,7 @@ export const QUESTIONS: SurveyQuestion[] = [
   {
     id: "G3",
     block: "GLOBAL",
-    text: "¿Con qué frecuencia recibe acompañamiento en campo?",
+    text: "¿Con qué frecuencia recibe acompañamiento ya sea virtual, telefónico o campo?",
     shortLabel: "Frecuencia real",
     type: "frequency",
     allowComment: false,
@@ -224,8 +224,8 @@ export const NOT_APPLICABLE_LABEL = "No aplica"
 
 export const SENIORITY_OPTIONS: { value: Seniority; label: string }[] = [
   { value: "LESS_THAN_1_YEAR", label: "Menos de 1 año" },
-  { value: "ONE_TO_THREE_YEARS", label: "1 a 3 años" },
-  { value: "MORE_THAN_3_YEARS", label: "Más de 3 años" },
+  { value: "ONE_TO_THREE_YEARS", label: "1 a 5 años" },
+  { value: "MORE_THAN_3_YEARS", label: "Más de 5 años" },
 ]
 
 /** Valores iniciales; los niveles se pueden ajustar en /admin/configuracion. */
