@@ -62,7 +62,7 @@ export default async function ResultsPage({ searchParams }: PageProps<"/admin/re
               <NpsCard report={report} />
             </Section>
 
-            <Section id="frecuencia" title="Frecuencia de acompañamiento en campo" description="Real (G3) vs. deseada (G4).">
+            <Section id="frecuencia" title="Frecuencia de acompañamiento (virtual, telefónico o campo)" description="Real (G3) vs. deseada (G4).">
               <FrequencyGapCard report={report} threshold={settings.frequencyGapThreshold} />
             </Section>
 

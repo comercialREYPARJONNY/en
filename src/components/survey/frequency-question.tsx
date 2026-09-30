@@ -16,7 +16,7 @@ type Props = {
   onChange: (answer: AnswerInput) => void
 }
 
-/** G3 / G4: frecuencia de acompañamiento en campo. */
+/** G3 / G4: frecuencia de acompañamiento (virtual, telefónico o campo). */
 export function FrequencyQuestion({ question, index, options, answer, error, onChange }: Props) {
   return (
     <QuestionCard id={question.id} index={index} text={question.text} error={error}>

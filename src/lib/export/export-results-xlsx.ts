@@ -194,7 +194,7 @@ function summarySheet(wb: ExcelJS.Workbook, input: ExportInput) {
   npsRows.at(-1)!.font = { bold: true }
 
   // 3. Frecuencia
-  sectionTitle(sheet, "3. Frecuencia de acompañamiento en campo: real (G3) vs. deseada (G4)")
+  sectionTitle(sheet, "3. Frecuencia de acompañamiento (virtual, telefónico o campo): real (G3) vs. deseada (G4)")
   addTable(
     sheet,
     ["Opción", "Nivel", "G3 real (n)", "G4 deseado (n)"],
