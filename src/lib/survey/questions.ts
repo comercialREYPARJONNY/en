@@ -156,7 +156,7 @@ export const QUESTIONS: SurveyQuestion[] = [
   ]),
   ...likertBlock("COMMERCIAL_TRAINING", [
     ["FC1", "Recibo capacitación comercial (técnicas de venta, negociación, manejo de objeciones) con regularidad.", "Capacitación regular"],
-    ["FC2", "Los contenidos de formación comercial se relacionan con la realidad de mis clientes (talleres, almacenes, distribuidores).", "Contenidos aterrizados"],
+    ["FC2", "Los contenidos de formación comercial se relacionan con la realidad de mis clientes (almacenes, distribuidores o talleres (manejo garantías o reclamos)).","Contenidos aterrizados"],
     ["FC3", "Después de una capacitación, mi líder hace seguimiento para que lo aprendido se aplique en campo.", "Seguimiento a lo aprendido"],
     ["FC4", "Me forman en cómo abrir clientes nuevos y aumentar la compra de los actuales (mix, recompra, venta cruzada).", "Apertura y crecimiento de clientes"],
     ["FC5", "Me capacitan en manejo de cartera, cobro y cuidado del crédito del cliente.", "Cartera y cobro"],
