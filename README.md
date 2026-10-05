@@ -6,6 +6,8 @@ los indicadores de las hojas **Resultados** y **Resumen**, dashboard administrat
 
 **Capturar → analizar → comparar → identificar alertas → exportar.**
 
+Producción: <https://reypar-eight.vercel.app>
+
 - Arquitectura, modelo de datos, reglas de negocio y rutas: [`docs/ARQUITECTURA.md`](docs/ARQUITECTURA.md)
 - Stack: Next.js 16 (App Router) · TypeScript · Tailwind CSS 4 · shadcn/ui (Base UI) · Prisma 7 + PostgreSQL ·
   Zod · React Hook Form · Recharts · ExcelJS · Auth.js · Vitest
