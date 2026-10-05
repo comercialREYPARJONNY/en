@@ -180,8 +180,8 @@ export const QUESTIONS: SurveyQuestion[] = [
     ["M4", "Mi líder me ayuda a planear mi semana (ruta, frecuencia de visita, prioridad de clientes).", "Planeación semanal"],
     ["M5", "Mi líder me ayuda a clasificar mis clientes y definir qué estrategia usar con cada uno.", "Clasificación de clientes"],
     ["M6", "Mi líder me asesora sobre cómo hacer crecer los clientes de mi cartera con plan concreto.", "Plan de crecimiento"],
-    ["M7", "La metodología comercial me ayuda a vender mejor y a organizar mi tiempo.", "Utilidad de la metodología"],
-    ["M8", "Mi líder aplica y predica con el ejemplo la metodología que exige.", "Predica con el ejemplo"],
+    ["M7", "La metodología comercial SORES me ayuda a vender mejor y a organizar mi tiempo.", "Utilidad de la metodología"],
+    ["M8", "Mi líder aplica y predica con el ejemplo la metodología SORES que exige.", "Predica con el ejemplo"],
   ]),
   {
     id: "PR1",
