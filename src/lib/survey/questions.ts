@@ -74,7 +74,7 @@ export const QUESTIONS: SurveyQuestion[] = [
     ["S4", "Cuando no cumplo una meta, mi líder busca entender las causas antes de presionar.", "Entiende causas"],
   ]),
   ...likertBlock("CONTROL", [
-    ["C1", "Entiendo claramente qué se controla de mi gestión (visitas, pedidos, recaudo, reportes).", "Claridad del control"],
+    ["C1", "Entiendo claramente qué se evalúa de mi gestión (visitas, pedidos, recaudo, reportes).", "Claridad del control"],
     ["C2", "El nivel de control sobre mi trabajo es justo y proporcional.", "Control proporcional"],
     ["C3", "Los reportes y registros que debo diligenciar son útiles y no excesivos.", "Reportes útiles"],
     ["C4", "Los indicadores con los que me miden reflejan realmente mi esfuerzo y las condiciones de mi zona.", "Indicadores justos"],
@@ -89,7 +89,7 @@ export const QUESTIONS: SurveyQuestion[] = [
   ...likertBlock("ADDED_VALUE", [
     ["V1", "El liderazgo que recibo me ayuda a vender más.", "Ayuda a vender más"],
     ["V2", "Mi líder aporta conocimiento o experiencia que yo no tendría por mi cuenta.", "Aporta conocimiento"],
-    ["V3", "Siento que su seguimiento y control me ayudan más de lo que me estorban.", "Ayuda más que estorba"],
+    ["V3", "Siento que su seguimiento y control me ayudan al buen desarrollo de mis actividades y gestión.", "Ayuda a mi gestión"],
     ["V4", "Mi desempeño ha mejorado gracias al acompañamiento de mi líder.", "Mejora del desempeño"],
     ["V5", "Siento que mi líder es un apoyo real para mi función y no solo un supervisor.", "Apoyo real"],
   ]),
@@ -174,9 +174,9 @@ export const QUESTIONS: SurveyQuestion[] = [
     ["FT7", "La frecuencia de la formación técnica es suficiente para mantenerme actualizado.", "Frecuencia de formación"],
   ]),
   ...likertBlock("METHODOLOGY", [
-    ["M1", "Conozco y entiendo la metodología comercial que la empresa espera que aplique.", "Conoce la metodología"],
-    ["M2", "Mi líder me explicó la metodología con ejemplos prácticos y no solo en teoría.", "Explicación práctica"],
-    ["M3", "Mi líder verifica en campo que estoy aplicando la metodología y me corrige con respeto.", "Verificación en campo"],
+    ["M1", "Conozco y entiendo la metodología comercial SORES que la empresa espera que aplique.", "Conoce la metodología"],
+    ["M2", "Mi líder me explicó la metodología SORES con ejemplos prácticos y no solo en teoría.", "Explicación práctica"],
+    ["M3", "Mi líder verifica en campo que estoy aplicando la metodología SORES y me corrige con respeto.", "Verificación en campo"],
     ["M4", "Mi líder me ayuda a planear mi semana (ruta, frecuencia de visita, prioridad de clientes).", "Planeación semanal"],
     ["M5", "Mi líder me ayuda a clasificar mis clientes y definir qué estrategia usar con cada uno.", "Clasificación de clientes"],
     ["M6", "Mi líder me asesora sobre cómo hacer crecer los clientes de mi cartera con plan concreto.", "Plan de crecimiento"],
